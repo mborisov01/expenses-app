@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import "../Expenses/Expenses.css";
 import Card from "../UI/Card";
@@ -6,14 +6,11 @@ import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter.js";
 
 const Expenses = (props) => {
-
-  const [year, setYear] = useState("2020")
-
+  const [year, setYear] = useState("2020");
   const expenses = props.expenses;
 
   const yearFilterValue = (yearVAlue) => {
-    setYear(yearVAlue)
-    console.log("expenses js", year);
+    setYear(yearVAlue);
   };
 
   return (
