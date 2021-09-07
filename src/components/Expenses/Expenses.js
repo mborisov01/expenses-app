@@ -24,16 +24,20 @@ const Expenses = (props) => {
     <div>
       <Card className="expenses">
         <ExpensesFilter selected={year} onSaveFilter={yearFilterValue} />
-        {filteredExpenses.map((expense) => {
-          return (
-            <ExpenseItem
-              key={expense.id}
-              title={expense.title}
-              expense={expense.amount}
-              date={expense.date}
-            />
-          );
-        })}
+        {filteredExpenses.length === 0 ? (
+          <p className="expenses__msg">No expenses found</p>
+        ) : (
+          filteredExpenses.map((expense) => {
+            return (
+              <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                expense={expense.amount}
+                date={expense.date}
+              />
+            );
+          })
+        )}
       </Card>
     </div>
   );
