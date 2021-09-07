@@ -11,7 +11,6 @@ const NewExpense = (props) => {
     };
 
     props.onAddExpense(expenseData)
-    console.log('eData', expenseData);
   };
 
   return (
