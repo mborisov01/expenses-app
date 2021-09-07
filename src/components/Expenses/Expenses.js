@@ -20,24 +20,26 @@ const Expenses = (props) => {
     );
   }
 
+  let expenseContent = <p className="expenses__msg">No expenses found</p>;
+  if (filteredExpenses.length > 0) {
+    expenseContent = filteredExpenses.map((expense) => {
+      return (
+        <ExpenseItem
+          key={expense.id}
+          title={expense.title}
+          expense={expense.amount}
+          date={expense.date}
+        />
+      );
+    })
+  }
+
+
   return (
     <div>
       <Card className="expenses">
         <ExpensesFilter selected={year} onSaveFilter={yearFilterValue} />
-        {filteredExpenses.length === 0 ? (
-          <p className="expenses__msg">No expenses found</p>
-        ) : (
-          filteredExpenses.map((expense) => {
-            return (
-              <ExpenseItem
-                key={expense.id}
-                title={expense.title}
-                expense={expense.amount}
-                date={expense.date}
-              />
-            );
-          })
-        )}
+        {expenseContent}
       </Card>
     </div>
   );
