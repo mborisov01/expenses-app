@@ -7,8 +7,6 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
-  console.log("asd", enteredTitle)
-
   //   const [userInput, setUserInput] = useState({
   //     enteredTitle: "",
   //     enteredAmount: "",
