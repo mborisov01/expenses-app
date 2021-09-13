@@ -7,6 +7,9 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
+
+  console.log('pp', props)
+
   //   const [userInput, setUserInput] = useState({
   //     enteredTitle: "",
   //     enteredAmount: "",
@@ -46,13 +49,20 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    
-    props.onSaveExpenseData(expenseData);
-    setEnteredTitle('')
-    setEnteredAmount('')
-    setEnteredDate('')
 
-    console.log('props', props)
+    // if (
+    //   expenseData.title === "" ||
+    //   expenseData.amount === "" ||
+    //   expenseData.date === NaN
+    // ) {
+    //   event.preventDefault();
+    //   alert("Please fill all the fields!");
+    // }
+
+    props.onSaveExpenseData(expenseData);
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -89,6 +99,7 @@ const ExpenseForm = (props) => {
       </div>
       <div className="new-expense__actions">
         <button type="submit">Add expense</button>
+        <button type="button" onClick={props.onChangeEditingState}>Close</button>
       </div>
     </form>
   );

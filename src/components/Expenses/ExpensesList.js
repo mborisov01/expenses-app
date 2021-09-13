@@ -4,6 +4,8 @@ import "./ExpensesList.css";
 import ExpenseItem from "./ExpenseItem";
 
 const ExpensesList = (props) => {
+
+  console.log("ExpensesList", props)
   if (props.items.length === 0) {
     return <h2 className="expenses-list__fallback">No expenses found.</h2>;
   }
@@ -17,7 +19,7 @@ const ExpensesList = (props) => {
           amount={expense.amount}
           date={expense.date}
         />
-      ))}
+      )).filter((expenseItem) => expenseItem.props.title !== "" && expenseItem.props.amount !== "" && expenseItem.props.date !== NaN)}
     </ul>
   );
 };
